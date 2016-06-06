@@ -44,7 +44,7 @@ BOOST_STATIC_LINK = False
 PYTHON_HOME = None
 V8_HOME = None
 V8_SVN_URL = "http://v8.googlecode.com/svn/trunk/"
-V8_GIT_URL = "https://chromium.googlesource.com/v8/v8.git"
+V8_GIT_URL = "https://github.com/v8/v8.git"
 V8_SVN_REVISION = None
 
 v8_svn_rev_file = os.path.normpath(os.path.join(os.path.dirname(__file__), 'REVISION'))
@@ -433,7 +433,7 @@ def prepare_gyp():
                 cmdline = 'svn up build/gyp'
             else:
                 cmdline = 'svn co http://gyp.googlecode.com/svn/trunk build/gyp'
-                cmdline = 'git clone https://chromium.googlesource.com/external/gyp.git build/gyp'
+                cmdline = 'git clone https://github.com/svn2github/gyp.git build/gyp'
         else:
             cmdline = MAKE + ' dependencies'
 
