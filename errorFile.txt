@@ -1,0 +1,189 @@
+Downloading/unpacking git+https://github.com/buckbaskin/pyv8.git
+  Cloning https://github.com/buckbaskin/pyv8.git to /tmp/pip-u_6_r7rf-build
+  Running setup.py (path:/tmp/pip-u_6_r7rf-build/setup.py) egg_info for package from git+https://github.com/buckbaskin/pyv8.git
+    WARN: V8_HOME doesn't exists or point to a wrong folder,
+    
+Requirement already satisfied (use --upgrade to upgrade): setuptools in ./venv/lib/python3.4/site-packages (from PyV8==1.0-dev)
+Installing collected packages: PyV8
+  Running setup.py install for PyV8
+    WARN: V8_HOME doesn't exists or point to a wrong folder,
+
+    INFO: we will try to checkout and build a private v8 build from <http://v8.googlecode.com/svn/trunk/>.
+    ====================
+    INFO: Checking out or Updating Google V8 code from SVN...
+    
+    skipping pysvn install
+    INFO: we will try to use the system 'svn' command to checkout/update V8 code
+    --------------------
+    INFO: git clone a new repository for Google v8 code ...
+    DEBUG: > git clone https://github.com/v8/v8.git /tmp/pip-u_6_r7rf-build/build/v8_r19632
+    I think it cloned
+    ====================
+    INFO: Installing or updating GYP...
+    --------------------
+    INFO: Check out GYP from Git ...
+    DEBUG: > make dependencies
+    ERROR: Check out GYP from Git failed: code=2
+    DEBUG: b"Makefile:523: *** Use 'gclient sync' instead.  Stop.\n"
+    ====================
+    INFO: Patching the GYP scripts
+    ERROR: fail to checkout and build v8, [Errno 2] No such file or directory: '/tmp/pip-u_6_r7rf-build/build/v8_r19632/build/standalone.gypi'
+    Fixing build/lib.linux-x86_64-3.4/PyV8.py
+    Skipping implicit fixer: buffer
+    Skipping implicit fixer: idioms
+    Skipping implicit fixer: set_literal
+    Skipping implicit fixer: ws_comma
+    Fixing build/lib.linux-x86_64-3.4/PyV8.py
+    Skipping implicit fixer: buffer
+    Skipping implicit fixer: idioms
+    Skipping implicit fixer: set_literal
+    Skipping implicit fixer: ws_comma
+    building '_PyV8' extension
+    x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -fPIC -DBOOST_PYTHON_STATIC_LIB -DV8_NATIVE_REGEXP -DENABLE_DEBUGGER_SUPPORT -DV8_TARGET_ARCH_X64 -I/tmp/pip-u_6_r7rf-build/build/v8_r19632/include -I/tmp/pip-u_6_r7rf-build/build/v8_r19632 -I/tmp/pip-u_6_r7rf-build/build/v8_r19632/src -I/usr/local/include -I/usr/include/python3.4m -I/home/buck/Github/pyv8/venv/include/python3.4m -c src/Utils.cpp -o build/temp.linux-x86_64-3.4/src/Utils.o -Wno-write-strings -g -O3
+    cc1plus: warning: command line option ‘-Wstrict-prototypes’ is valid for C/ObjC but not for C++ [enabled by default]
+    In file included from /tmp/pip-u_6_r7rf-build/build/v8_r19632/src/arguments.h:10:0,
+                     from /tmp/pip-u_6_r7rf-build/build/v8_r19632/src/debug/debug.h:9,
+                     from /usr/include/c++/4.8/bits/stl_iterator_base_funcs.h:65,
+                     from /usr/include/c++/4.8/bits/stl_algobase.h:66,
+                     from /usr/include/c++/4.8/bits/char_traits.h:39,
+                     from /usr/include/c++/4.8/string:40,
+                     from src/Utils.h:3,
+                     from src/Utils.cpp:5:
+    /tmp/pip-u_6_r7rf-build/build/v8_r19632/src/tracing/trace-event.h:10:56: fatal error: base/trace_event/common/trace_event_common.h: No such file or directory
+     #include "base/trace_event/common/trace_event_common.h"
+                                                            ^
+    compilation terminated.
+    Traceback (most recent call last):
+      File "/tmp/pip-u_6_r7rf-build/setup.py", line 585, in prepare_v8
+        build_v8()
+      File "/tmp/pip-u_6_r7rf-build/setup.py", line 456, in build_v8
+        with open(gypi, 'r') as f:
+    FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pip-u_6_r7rf-build/build/v8_r19632/build/standalone.gypi'
+    error: command 'x86_64-linux-gnu-gcc' failed with exit status 1
+    Complete output from command /home/buck/Github/pyv8/venv/bin/python3 -c "import setuptools, tokenize;__file__='/tmp/pip-u_6_r7rf-build/setup.py';exec(compile(getattr(tokenize, 'open', open)(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))" install --record /tmp/pip-90uichzt-record/install-record.txt --single-version-externally-managed --compile --install-headers /home/buck/Github/pyv8/venv/include/site/python3.4:
+    WARN: V8_HOME doesn't exists or point to a wrong folder,
+
+running install
+
+running build
+
+INFO: we will try to checkout and build a private v8 build from <http://v8.googlecode.com/svn/trunk/>.
+
+====================
+
+INFO: Checking out or Updating Google V8 code from SVN...
+
+
+
+skipping pysvn install
+
+INFO: we will try to use the system 'svn' command to checkout/update V8 code
+
+--------------------
+
+INFO: git clone a new repository for Google v8 code ...
+
+DEBUG: > git clone https://github.com/v8/v8.git /tmp/pip-u_6_r7rf-build/build/v8_r19632
+
+I think it cloned
+
+====================
+
+INFO: Installing or updating GYP...
+
+--------------------
+
+INFO: Check out GYP from Git ...
+
+DEBUG: > make dependencies
+
+ERROR: Check out GYP from Git failed: code=2
+
+DEBUG: b"Makefile:523: *** Use 'gclient sync' instead.  Stop.\n"
+
+====================
+
+INFO: Patching the GYP scripts
+
+ERROR: fail to checkout and build v8, [Errno 2] No such file or directory: '/tmp/pip-u_6_r7rf-build/build/v8_r19632/build/standalone.gypi'
+
+running build_py
+
+creating build/lib.linux-x86_64-3.4
+
+copying PyV8.py -> build/lib.linux-x86_64-3.4
+
+Fixing build/lib.linux-x86_64-3.4/PyV8.py
+
+Skipping implicit fixer: buffer
+
+Skipping implicit fixer: idioms
+
+Skipping implicit fixer: set_literal
+
+Skipping implicit fixer: ws_comma
+
+Fixing build/lib.linux-x86_64-3.4/PyV8.py
+
+Skipping implicit fixer: buffer
+
+Skipping implicit fixer: idioms
+
+Skipping implicit fixer: set_literal
+
+Skipping implicit fixer: ws_comma
+
+running build_ext
+
+building '_PyV8' extension
+
+creating build/temp.linux-x86_64-3.4
+
+creating build/temp.linux-x86_64-3.4/src
+
+x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -g -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -fPIC -DBOOST_PYTHON_STATIC_LIB -DV8_NATIVE_REGEXP -DENABLE_DEBUGGER_SUPPORT -DV8_TARGET_ARCH_X64 -I/tmp/pip-u_6_r7rf-build/build/v8_r19632/include -I/tmp/pip-u_6_r7rf-build/build/v8_r19632 -I/tmp/pip-u_6_r7rf-build/build/v8_r19632/src -I/usr/local/include -I/usr/include/python3.4m -I/home/buck/Github/pyv8/venv/include/python3.4m -c src/Utils.cpp -o build/temp.linux-x86_64-3.4/src/Utils.o -Wno-write-strings -g -O3
+
+cc1plus: warning: command line option ‘-Wstrict-prototypes’ is valid for C/ObjC but not for C++ [enabled by default]
+
+In file included from /tmp/pip-u_6_r7rf-build/build/v8_r19632/src/arguments.h:10:0,
+
+                 from /tmp/pip-u_6_r7rf-build/build/v8_r19632/src/debug/debug.h:9,
+
+                 from /usr/include/c++/4.8/bits/stl_iterator_base_funcs.h:65,
+
+                 from /usr/include/c++/4.8/bits/stl_algobase.h:66,
+
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+
+                 from /usr/include/c++/4.8/string:40,
+
+                 from src/Utils.h:3,
+
+                 from src/Utils.cpp:5:
+
+/tmp/pip-u_6_r7rf-build/build/v8_r19632/src/tracing/trace-event.h:10:56: fatal error: base/trace_event/common/trace_event_common.h: No such file or directory
+
+ #include "base/trace_event/common/trace_event_common.h"
+
+                                                        ^
+
+compilation terminated.
+
+Traceback (most recent call last):
+
+  File "/tmp/pip-u_6_r7rf-build/setup.py", line 585, in prepare_v8
+
+    build_v8()
+
+  File "/tmp/pip-u_6_r7rf-build/setup.py", line 456, in build_v8
+
+    with open(gypi, 'r') as f:
+
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pip-u_6_r7rf-build/build/v8_r19632/build/standalone.gypi'
+
+error: command 'x86_64-linux-gnu-gcc' failed with exit status 1
+
+----------------------------------------
+Cleaning up...
+Command /home/buck/Github/pyv8/venv/bin/python3 -c "import setuptools, tokenize;__file__='/tmp/pip-u_6_r7rf-build/setup.py';exec(compile(getattr(tokenize, 'open', open)(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))" install --record /tmp/pip-90uichzt-record/install-record.txt --single-version-externally-managed --compile --install-headers /home/buck/Github/pyv8/venv/include/site/python3.4 failed with error code 1 in /tmp/pip-u_6_r7rf-build
+Storing debug log for failure in /home/buck/.pip/pip.log

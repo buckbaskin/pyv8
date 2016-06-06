@@ -433,11 +433,9 @@ def prepare_gyp():
                 cmdline = 'svn up build/gyp'
             else:
                 cmdline = 'svn co http://gyp.googlecode.com/svn/trunk build/gyp'
-                cmdline = 'git clone https://github.com/svn2github/gyp.git build/gyp'
         else:
             cmdline = MAKE + ' dependencies'
 
-        print('the cmdline run is: %s' % cmdline)
         exec_cmd(cmdline, "Check out GYP from Git")
     except Exception as e:
         print("ERROR: fail to install GYP: %s" % e)
