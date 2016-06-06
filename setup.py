@@ -437,6 +437,7 @@ def prepare_gyp():
         else:
             cmdline = MAKE + ' dependencies'
 
+        print('the cmdline run is: %s' % cmdline)
         exec_cmd(cmdline, "Check out GYP from Git")
     except Exception as e:
         print("ERROR: fail to install GYP: %s" % e)
