@@ -44,6 +44,7 @@ BOOST_STATIC_LINK = False
 PYTHON_HOME = None
 V8_HOME = None
 V8_SVN_URL = "http://v8.googlecode.com/svn/trunk/"
+V8_GIT_URL = "https://chromium.googlesource.com/v8/v8.git"
 V8_SVN_REVISION = None
 
 v8_svn_rev_file = os.path.normpath(os.path.join(os.path.dirname(__file__), 'REVISION'))
@@ -353,6 +354,7 @@ def checkout_v8():
     update_code = os.path.isdir(V8_HOME) and os.path.exists(os.path.join(V8_HOME, 'include', 'v8.h'))
 
     try:
+        raise ImportError('Skip attempt to use python-svn/pysvn')
         from pysvn import Client, Revision, opt_revision_kind
 
         svnClient = Client()
@@ -378,18 +380,37 @@ def checkout_v8():
 
         print("INFO: we will try to use the system 'svn' command to checkout/update V8 code")
 
-    if update_code:
+    print('V8_HOME')
+    import sys
+    sys.exit(42)
+    if update_code and False:
         args = ["svn", "up", V8_HOME]
+        # svn: svn up(date) V8_HOME
+        # git: git pull (repository path to update)
+        git_args = ["git", "--work-tree="+V8_HOME,"--git-dir"+V8_HOME+"/.git","pull"]
     else:
         os.makedirs(V8_HOME)
+        # make the folder
 
         args = ["svn", "co", V8_SVN_URL, V8_HOME]
+        # svn: svn checkout (repo to clone) (location to put it)
+        # git: git clone (repo to clone) (location to put it)
+        git_args = ["git", "clone", V8_GIT_URL, V8_HOME]
 
     if V8_SVN_REVISION:
+        # if there is a specific version to pull
         args += ['-r', str(V8_SVN_REVISION)]
+        # svn: -r specifies the "commit"/branch id/tag whatever to use as version
+        # git: can clone just a specific branch. I'd rather clone it all and checkout
+        #   a specific branch, then pull its changes just in case
 
+    if exec_cmd(' '.join(git_args), "git clone a new repository for Google v8 code"):
+        print('I think it cloned')
+    '''
     if exec_cmd(' '.join(args), "checkout or update Google V8 code from SVN"):
         if not V8_SVN_REVISION:
+            # if it didn't have a version, parse the version and save it to
+            #   freeze at that point
             ok, out, err = exec_cmd(' '.join(["svn", "info", V8_HOME]),
                                     "save the current V8 SVN revision to REVISION file", output=True)
 
@@ -398,7 +419,7 @@ def checkout_v8():
                     f.write(re.search(r'Revision:\s(?P<rev>\d+)', out, re.MULTILINE).groupdict()['rev'])
             else:
                 print("ERROR: fail to fetch SVN info, %s", err)
-
+    '''
 
 def prepare_gyp():
     print("=" * 20)
