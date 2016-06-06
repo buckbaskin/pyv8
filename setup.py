@@ -380,7 +380,7 @@ def checkout_v8():
 
         print("INFO: we will try to use the system 'svn' command to checkout/update V8 code")
 
-    print('V8_HOME')
+    print('V8_HOME: exiting\n>%s<' % V8_HOME)
     import sys
     sys.exit(42)
     if update_code and False:
