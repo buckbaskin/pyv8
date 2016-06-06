@@ -354,6 +354,7 @@ def checkout_v8():
     update_code = os.path.isdir(V8_HOME) and os.path.exists(os.path.join(V8_HOME, 'include', 'v8.h'))
 
     try:
+        print('skipping pysvn install')
         raise ImportError('Skip attempt to use python-svn/pysvn')
         from pysvn import Client, Revision, opt_revision_kind
 
@@ -380,6 +381,7 @@ def checkout_v8():
 
         print("INFO: we will try to use the system 'svn' command to checkout/update V8 code")
 
+    print('PYv8Home %s' % PYV8_HOME)
     print('V8_HOME: exiting\n>%s<' % V8_HOME)
     import sys
     sys.exit(42)
