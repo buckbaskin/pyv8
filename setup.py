@@ -429,14 +429,15 @@ def prepare_gyp():
 
     try:
         if is_winnt:
-            if os.path.isdir(os.path.join(V8_HOME, 'build', 'gyp')):
+            if False and os.path.isdir(os.path.join(V8_HOME, 'build', 'gyp')):
                 cmdline = 'svn up build/gyp'
             else:
                 cmdline = 'svn co http://gyp.googlecode.com/svn/trunk build/gyp'
+                cmdline = 'git clone https://chromium.googlesource.com/external/gyp.git build/gyp'
         else:
             cmdline = MAKE + ' dependencies'
 
-        exec_cmd(cmdline, "Check out GYP from SVN")
+        exec_cmd(cmdline, "Check out GYP from Git")
     except Exception as e:
         print("ERROR: fail to install GYP: %s" % e)
         print("       http://code.google.com/p/v8/wiki/BuildingWithGYP")
