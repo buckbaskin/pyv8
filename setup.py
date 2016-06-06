@@ -381,10 +381,10 @@ def checkout_v8():
 
         print("INFO: we will try to use the system 'svn' command to checkout/update V8 code")
 
-    print('PYv8Home %s' % PYV8_HOME)
-    print('V8_HOME: exiting\n>%s<' % V8_HOME)
-    import sys
-    sys.exit(42)
+    # print('PYv8Home %s' % PYV8_HOME)
+    # print('V8_HOME: exiting\n>%s<' % V8_HOME)
+    # import sys
+    # sys.exit(42)
     if update_code and False:
         args = ["svn", "up", V8_HOME]
         # svn: svn up(date) V8_HOME
